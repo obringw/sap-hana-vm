@@ -71,6 +71,7 @@
     },
     "subnetId": {
       "type": "string",
+      "defaultValue": "/subscriptions/062ab761-8f9e-4a10-9d08-25f39130c48a/resourceGroups/rg-network-prod-gwc/providers/Microsoft.Network/virtualNetworks/vnet-sap-prod-gwc/subnets/snet-poc-prod-gwc-001",
       "metadata": {
         "description": "The id of the subnet you want to use."
       }
@@ -93,7 +94,7 @@
     },
     "CostCenter": {
       "type": "string",
-      "defaultValue": "CS123456",
+      "defaultValue": "28007510",
       "metadata": {
         "description": "Provide mandatory Cost Center ID"
       }
@@ -263,11 +264,11 @@
               "lun": 8,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 1024
             }
           ],
           "scriptArguments": {
-            "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''usrsap#data#log#shared'' -paths ''/usr/sap#/hana/data/',parameters('sapSystemId'),'#/hana/log/',parameters('sapSystemId'),'#/hana/shared'' -sizes ''100#100#100#100''')]"
+             "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''usrsap#data#log#shared'' -paths ''/usr/sap#/hana/data#/hana/log#/hana/shared'' -sizes ''80#100#100#50''')]"
           },
           "useFastNetwork": true
         }
@@ -332,7 +333,7 @@
             }
           ],
           "scriptArguments": {
-              "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''usrsap#data#log#shared'' -paths ''/usr/sap#/hana/data/',parameters('sapSystemId'),'#/hana/log/',parameters('sapSystemId'),'#/hana/shared'' -sizes ''100#100#100#100''')]"
+               "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''usrsap#data#log#shared'' -paths ''/usr/sap#/hana/data#/hana/log#/hana/shared'' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
